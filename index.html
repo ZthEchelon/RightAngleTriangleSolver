@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="utf-8">
+    <title>Right Angle Triangle Solver</title>
+</head>
+<body>
+    <main>
+        <h1>Right Angle Triangle Solver</h1>
+
+        <section>
+            <p>If a value is unknown, enter 0</p>
+
+            <label>a: </label>
+            <input type="number" id="aValue"><br><br>
+
+            <label>b: </label>
+            <input type="number" id="bValue"><br><br>
+
+            <label>c: </label>
+            <input type="number" id="cValue"><br><br>
+
+            <button onclick="solveTriangle()">Solve</button>
+
+            <p id="output"></p>
+        </section>
+    </main>
+
+    <script>
+        function solveTriangle() {
+            // get values from inputs
+            let a = Number(document.getElementById("aValue").value);
+            let b = Number(document.getElementById("bValue").value);
+            let c = Number(document.getElementById("cValue").value);
+             // check for invalid (non-numeric) input
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+              document.getElementById("output").textContent = "Please enter numbers only.";
+              return; // stop the function
+            }
+
+
+            let result = "";
+
+            // same logic as your Java code
+            if (c === 0) {
+                result = Math.sqrt(a*a + b*b);
+            }
+            else if (a === 0) {
+                result = Math.sqrt(c*c - b*b);
+            }
+            else if (b === 0) {
+                result = Math.sqrt(c*c - a*a);
+            }
+
+            document.getElementById("output").textContent = 
+                "The answer is " + result;
+        }
+    </script>
+</body>
+</html>
 
